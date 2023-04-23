@@ -44,7 +44,7 @@ api.use(bodyParser.json());
 api.use(bodyParser.urlencoded());
 api.use(bodyParser.urlencoded({ extended: true }));
 
-api.get("/gps/all", (req, res) => {
+api.get("/all", (req, res) => {
     getCollection(database, "GPSDetails")
     .then((value) => {
         let students = [];
@@ -59,7 +59,7 @@ api.get("/gps/all", (req, res) => {
     });
 });
 
-api.post("gps/insert", (req, res) => {
+api.post("/insert", (req, res) => {
   addToCollection(database, "GPSDetails", req.body)
     .then((value) => {
       res.send("Done");
