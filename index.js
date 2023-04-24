@@ -32,6 +32,7 @@ async function addToCollection(db, colName, json) {
   const UUID = new Date().getTime();
   delete json.collection;
   json.UUID = UUID;
+  json.created = new Date();
   await setDoc(doc(db, colName, UUID.toString()), json);
 }
 
